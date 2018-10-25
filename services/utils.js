@@ -1,10 +1,5 @@
 // server/services/utils.js
 
-const fs = require('fs');
-
-// function isNumber() {
-//
-// }
 function isJson(x) {
   // check if its null
   if (!x) {
@@ -74,8 +69,6 @@ exports.promisesAll = function (array, func) {
 exports.isNullorUndefined = function (elem) {
   return elem === undefined || elem === null;
 };
-
-exports.HOST = process.env.NODE_ENV === 'production' ? 'https://accionetdev.herokuapp.com' : 'http://localhost:3000';
 
 exports.queryToHttpString = function (query) {
   let str = '?';
