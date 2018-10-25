@@ -1,0 +1,19 @@
+{
+  "name": "codemaster",
+  "version": "0.0.2",
+  "description": "Services and other stuff for accionet company",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afontainec/codemaster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afontainec/codemaster/issues"
+  },
+  "homepage": "https://github.com/afontainec/codemaster#readme"
+}
