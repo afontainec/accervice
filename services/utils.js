@@ -82,4 +82,4 @@ exports.queryToHttpString = function (query) {
   return str;
 };
 
-exports.date = Date;
+exports.Date = Date;
