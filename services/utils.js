@@ -1,5 +1,7 @@
 // server/services/utils.js
 const Date = require('./utils/date');
+const Array = require('./utils/array');
+
 function isJson(x) {
   // check if its null
   if (!x) {
@@ -83,3 +85,4 @@ exports.queryToHttpString = function (query) {
 };
 
 exports.Date = Date;
+exports.Array = Array;
