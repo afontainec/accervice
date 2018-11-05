@@ -68,6 +68,14 @@ exports.promisesAll = function (array, func) {
   return Promise.all(promises);
 };
 
+exports.wait = function (time) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
+
 exports.isNullorUndefined = function (elem) {
   return elem === undefined || elem === null;
 };
