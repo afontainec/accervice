@@ -1,12 +1,10 @@
 // server/services/utils.js
 const Date = require('./utils/date');
-const Array = require('./utils/array');
+const ArrayCM = require('./utils/array');
 
 function isJson(x) {
   // check if its null
-  if (!x) {
-    return false;
-  }
+  if (!x || Array.isArray(x)) return false;
   return (typeof x) === 'object';
 }
 
@@ -93,4 +91,4 @@ exports.queryToHttpString = function (query) {
 };
 
 exports.Date = Date;
-exports.Array = Array;
+exports.Array = ArrayCM;
