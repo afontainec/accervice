@@ -1,6 +1,6 @@
 {
   "name": "codemaster",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Services and other stuff for accionet company",
   "main": "index.js",
   "scripts": {
