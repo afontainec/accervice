@@ -6,7 +6,17 @@ const removeElement = (array, element) => {
   return array;
 };
 
+const hasElement = (array, element) => {
+  const index = array.indexOf(element);
+  return (index > -1);
+};
+
+const contains = (array, element) => {
+  return hasElement(array, element);
+};
 
 module.exports = {
   removeElement,
+  hasElement,
+  contains,
 };
