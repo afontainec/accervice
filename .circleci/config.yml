@@ -28,18 +28,18 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
-        name: install-npm-wee
-        command: 'npm install'
+          name: install-npm-wee
+          command: 'npm install'
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       # run tests!
       - run:
-        name: test
-        command: 'npm test'
+          name: test
+          command: 'npm test'
 
       - store_artifacts: # special step to save test results as as artifact
-        # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-        path: test-results.xml
-        prefix: tests
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: test-results.xml
+          prefix: tests
