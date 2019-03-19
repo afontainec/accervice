@@ -3,7 +3,7 @@ const removeElement = (array, element) => {
   if (index > -1) {
     array.splice(index, 1);
   }
-  return array;
+  // return array;
 };
 
 const hasElement = (array, element) => {
