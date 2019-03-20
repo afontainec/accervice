@@ -55,6 +55,7 @@ function randomInteger(min, max) {
 exports.randomInteger = randomInteger;
 
 exports.randomEntry = function (array) {
+  console.log('a');
   const randomIndex = randomInteger(0, array.length - 1);
   return array[randomIndex];
 };
