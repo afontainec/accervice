@@ -4,7 +4,8 @@
   "description": "Common Utils needed for development",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha --recursive test/ --exit"
+    "test": "nyc mocha --recursive test/ --exit",
+    "coverage": "nyc check-coverage --lines 5 --functions 5 --branches 5 --statements 5"
   },
   "repository": {
     "type": "git",
