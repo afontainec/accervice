@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 
 // Require the dev-dependencies
 const chai = require('chai');// eslint-disable-line
-const Utils = require('../../').utils;
+const Utils = require('../../../').utils;
 
 const assert = chai.assert; //eslint-disable-line
 
