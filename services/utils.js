@@ -27,7 +27,7 @@ exports.cloneObject = function (obj) {
   } catch (err) {
     copy = {};
   }
-  //eslint-disable-next-line
+  // eslint-disable-next-line
   for (const attr in obj) {
     if (obj.hasOwnProperty(attr)) {
       copy[attr] = obj[attr];
