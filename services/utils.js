@@ -44,6 +44,7 @@ exports.concatUnique = function (a, b) {
 };
 
 exports.cloneJSON = function (json) {
+  if (!json && typeof obj !== 'object') return json;
   return JSON.parse(JSON.stringify(json));
 };
 
