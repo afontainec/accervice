@@ -27,7 +27,7 @@ exports.cloneObject = function (obj) {
   } catch (err) {
     copy = {};
   }
-  //eslint-disable-next-line
+  // eslint-disable-next-line
   for (const attr in obj) {
     if (obj.hasOwnProperty(attr)) {
       copy[attr] = obj[attr];
@@ -44,6 +44,7 @@ exports.concatUnique = function (a, b) {
 };
 
 exports.cloneJSON = function (json) {
+  if (!json && typeof obj !== 'object') return json;
   return JSON.parse(JSON.stringify(json));
 };
 
