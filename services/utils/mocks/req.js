@@ -12,12 +12,14 @@ function isAuthenticated() {
 
 
 function login(user) {
+  if (!user) return;
   authenticated = true;
   this.user = user;
 }
 
 function logout() {
   authenticated = false;
+  this.user = undefined;
 }
 
 function setParam(key, value) {
