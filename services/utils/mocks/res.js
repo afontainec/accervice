@@ -9,6 +9,11 @@ function send(file) {
   this.sendingFile = file;
 }
 
+function status(stat) {
+  this.status = stat;
+  return this;
+}
+
 function sendFile(file) {
   this.sendingFile = file;
 }
@@ -24,6 +29,7 @@ const generate = () => {
     redirect,
     send,
     sendFile,
+    status,
   };
 };
 
