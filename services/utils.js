@@ -2,6 +2,8 @@
 const Date = require('./utils/date');
 const ArrayCM = require('./utils/array');
 const db = require('./utils/db');
+const req = require('./utils/mocks/req');
+const res = require('./utils/mocks/res');
 
 function isJson(x) {
   // check if its null
@@ -11,7 +13,7 @@ function isJson(x) {
 
 exports.isJSON = isJson;
 
-exports.isEmptyJSON = function (x) {
+exports.isEmptyJSON = (x) => {
   // if it is not a json then it is not an empty json
   if (!isJson(x)) {
     return false;
@@ -19,7 +21,7 @@ exports.isEmptyJSON = function (x) {
   return Object.keys(x).length === 0;
 };
 
-exports.cloneObject = function (obj) {
+exports.cloneObject = (obj) => {
   if (obj === null || typeof obj !== 'object') return obj;
   let copy;
   try {
@@ -29,21 +31,21 @@ exports.cloneObject = function (obj) {
   }
   // eslint-disable-next-line
   for (const attr in obj) {
-    if (obj.hasOwnProperty(attr)) {
+    if (Object.prototype.hasOwnProperty.call(obj, attr)) {
       copy[attr] = obj[attr];
     }
   }
   return copy;
 };
 
-exports.concatUnique = function (a, b) {
+exports.concatUnique = (a, b) => {
   let d = a.concat(b);
   const set = new Set(d);
   d = Array.from(set);
   return d;
 };
 
-exports.cloneJSON = function (json) {
+exports.cloneJSON = (json) => {
   if (!json && typeof obj !== 'object') return json;
   return JSON.parse(JSON.stringify(json));
 };
@@ -55,12 +57,12 @@ function randomInteger(min, max) {
 
 exports.randomInteger = randomInteger;
 
-exports.randomEntry = function (array) {
+exports.randomEntry = (array) => {
   const randomIndex = randomInteger(0, array.length - 1);
   return array[randomIndex];
 };
 
-exports.promisesAll = function (array, func) {
+exports.promisesAll = (array, func) => {
   const promises = [];
   for (let i = 0; i < array.length; i++) {
     promises.push(func(array[i]));
@@ -68,7 +70,7 @@ exports.promisesAll = function (array, func) {
   return Promise.all(promises);
 };
 
-exports.wait = function (time) {
+exports.wait = (time) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve();
@@ -76,11 +78,11 @@ exports.wait = function (time) {
   });
 };
 
-exports.isNullorUndefined = function (elem) {
+exports.isNullorUndefined = (elem) => {
   return elem === undefined || elem === null;
 };
 
-exports.queryToHttpString = function (query) {
+exports.queryToHttpString = (query) => {
   let str = '?';
   const keys = Object.keys(query);
   for (let i = 0; i < keys.length; i++) {
@@ -92,6 +94,14 @@ exports.queryToHttpString = function (query) {
   return str;
 };
 
+const mocks = {
+  express: {
+    req,
+    res,
+  },
+};
+
 exports.Date = Date;
 exports.Array = ArrayCM;
 exports.db = db;
+exports.mocks = mocks;

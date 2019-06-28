@@ -1,6 +1,6 @@
 const path = require('path');
 
-exports.success = function (text, keys, values) {
+exports.success = (text, keys, values) => {
   const json = {
     message: text,
   };
@@ -26,6 +26,6 @@ exports.error = function buildErrorJSON(error, fullMessage) {
   return json;
 };
 
-exports.errorPath = function () {
-  return path.join(__dirname, '../', '../', 'client', 'views', 'error.ejs');
+exports.errorPath = () => {
+  return path.join(__dirname, '..', '..', 'client', 'views', 'error.ejs');
 };
