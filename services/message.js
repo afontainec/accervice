@@ -8,17 +8,17 @@ const newMessage = (code, message, fullMessage) => {
 };
 
 
-const isError = function (message) {
-  const code = message.code;
+const isError = (message) => {
+  const { code } = message;
   return (code >= 400);
 };
 
-const isServerError = function (message) {
-  const code = message.code;
+const isServerError = (message) => {
+  const { code } = message;
   return (code === 500);
 };
 
-const isClientError = function (message) {
+const isClientError = (message) => {
   return !isServerError(message);
 };
 
