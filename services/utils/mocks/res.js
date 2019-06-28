@@ -9,8 +9,8 @@ function send(file) {
   this.sendingFile = file;
 }
 
-function status(stat) {
-  this.status = stat;
+function status(statusToSend) {
+  this.statusToSend = statusToSend;
   return this;
 }
 
