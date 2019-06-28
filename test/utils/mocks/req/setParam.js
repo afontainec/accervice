@@ -8,9 +8,6 @@ const { utils } = require('../../../..');
 const req = utils.mocks.express.req.generate();
 
 const { assert } = chai;
-const user = {
-  user_id: 1,
-};
 
 // Our parent block
 describe('Utils: req.setParams', () => { // eslint-disable-line no-undef, max-lines-per-function
