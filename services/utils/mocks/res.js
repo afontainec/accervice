@@ -9,6 +9,10 @@ function send(file) {
   this.sendingFile = file;
 }
 
+function sendFile(file) {
+  this.sendingFile = file;
+}
+
 function redirect(path) {
   this.redirectingTo = path;
 }
@@ -19,6 +23,7 @@ const generate = () => {
     render,
     redirect,
     send,
+    sendFile,
   };
 };
 
