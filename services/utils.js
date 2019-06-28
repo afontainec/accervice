@@ -2,6 +2,8 @@
 const Date = require('./utils/date');
 const ArrayCM = require('./utils/array');
 const db = require('./utils/db');
+const req = require('./utils/mocks/req');
+const res = require('./utils/mocks/res');
 
 function isJson(x) {
   // check if its null
@@ -92,6 +94,14 @@ exports.queryToHttpString = function (query) {
   return str;
 };
 
+const mocks = {
+  express: {
+    req,
+    res,
+  },
+};
+
 exports.Date = Date;
 exports.Array = ArrayCM;
 exports.db = db;
+exports.mocks = mocks;
