@@ -13,7 +13,7 @@ function isJson(x) {
 
 exports.isJSON = isJson;
 
-exports.isEmptyJSON = function (x) {
+exports.isEmptyJSON = (x) => {
   // if it is not a json then it is not an empty json
   if (!isJson(x)) {
     return false;
@@ -21,7 +21,7 @@ exports.isEmptyJSON = function (x) {
   return Object.keys(x).length === 0;
 };
 
-exports.cloneObject = function (obj) {
+exports.cloneObject = (obj) => {
   if (obj === null || typeof obj !== 'object') return obj;
   let copy;
   try {
@@ -31,21 +31,21 @@ exports.cloneObject = function (obj) {
   }
   // eslint-disable-next-line
   for (const attr in obj) {
-    if (obj.hasOwnProperty(attr)) {
+    if (Object.prototype.hasOwnProperty.call(obj, attr)) {
       copy[attr] = obj[attr];
     }
   }
   return copy;
 };
 
-exports.concatUnique = function (a, b) {
+exports.concatUnique = (a, b) => {
   let d = a.concat(b);
   const set = new Set(d);
   d = Array.from(set);
   return d;
 };
 
-exports.cloneJSON = function (json) {
+exports.cloneJSON = (json) => {
   if (!json && typeof obj !== 'object') return json;
   return JSON.parse(JSON.stringify(json));
 };
