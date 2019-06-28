@@ -57,12 +57,12 @@ function randomInteger(min, max) {
 
 exports.randomInteger = randomInteger;
 
-exports.randomEntry = function (array) {
+exports.randomEntry = (array) => {
   const randomIndex = randomInteger(0, array.length - 1);
   return array[randomIndex];
 };
 
-exports.promisesAll = function (array, func) {
+exports.promisesAll = (array, func) => {
   const promises = [];
   for (let i = 0; i < array.length; i++) {
     promises.push(func(array[i]));
@@ -70,7 +70,7 @@ exports.promisesAll = function (array, func) {
   return Promise.all(promises);
 };
 
-exports.wait = function (time) {
+exports.wait = (time) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve();
@@ -78,11 +78,11 @@ exports.wait = function (time) {
   });
 };
 
-exports.isNullorUndefined = function (elem) {
+exports.isNullorUndefined = (elem) => {
   return elem === undefined || elem === null;
 };
 
-exports.queryToHttpString = function (query) {
+exports.queryToHttpString = (query) => {
   let str = '?';
   const keys = Object.keys(query);
   for (let i = 0; i < keys.length; i++) {
