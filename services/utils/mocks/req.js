@@ -27,6 +27,11 @@ function setParam(key, value) {
   this.params[key] = value;
 }
 
+function setBody(key, value) {
+  this.body = this.body || {};
+  this.body[key] = value;
+}
+
 function setQuery(key, value) {
   this.query = this.query || {};
   this.query[key] = value;
@@ -37,6 +42,7 @@ const generate = () => {
     isAuthenticated,
     login,
     logout,
+    setBody,
     setParam,
     setQuery,
     headers,
