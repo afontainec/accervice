@@ -1,6 +1,6 @@
 {
   "name": "codemaster",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Common Utils needed for development",
   "main": "index.js",
   "scripts": {
