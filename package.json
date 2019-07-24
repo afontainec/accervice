@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha --recursive test/ --exit",
-    "coverage": "nyc check-coverage --statements 50 --branches 50 --functions 25 --lines 50  ",
+    "coverage": "nyc check-coverage --statements 55 --branches 55 --functions 30 --lines 55  ",
     "linter": "eslint -c .eslintrc.js ."
   },
   "repository": {
@@ -20,12 +20,12 @@
   "homepage": "https://github.com/afontainec/codemaster#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "^5.15.3",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "mocha": "^5.2.0",
-    "nyc": "^13.3.0"
+    "nyc": "^14.1.1"
   }
 }
