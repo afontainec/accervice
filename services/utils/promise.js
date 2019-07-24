@@ -11,8 +11,10 @@ const doAll = async (promises) => {
 };
 
 const registerInResult = (element, i, result) => {
-  return new Promise((resolve) => {
-    element.then((r) => {
+  return new Promise((resolve, reject) => {
+    const badParams = !result || !result.resolve || !result.reject || !i;
+    if (badParams) return reject(new Error('Input not defined correctly'));
+    return element.then((r) => {
       result.resolve[i] = r;
       resolve();
     }).catch((err) => {
