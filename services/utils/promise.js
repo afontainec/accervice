@@ -1,4 +1,5 @@
 const doAll = async (promises) => {
+  promises = promises || [];
   const n = promises.length;
   const result = buildDoAllResult(n);
   const registerPromises = [];
@@ -12,7 +13,8 @@ const doAll = async (promises) => {
 
 const registerInResult = (element, i, result) => {
   return new Promise((resolve, reject) => {
-    const badParams = !result || !result.resolve || !result.reject || !i;
+    i = parseInt(i, 10);
+    const badParams = !result || !result.resolve || !result.reject || Number.isNaN(i);
     if (badParams) return reject(new Error('Input not defined correctly'));
     return element.then((r) => {
       result.resolve[i] = r;
