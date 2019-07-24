@@ -47,7 +47,7 @@ describe('Promise: registerInResult', () => { // eslint-disable-line
 
   it('element is not a promise',  (done) => { // eslint-disable-line
     const result = Utils.cloneJSON(example);
-    Utils.Promise.registerInResult('string', 1, result).then((r) => {
+    Utils.Promise.registerInResult('string', 1, result).then(() => {
       done('SHOULD NOT GET HERE');
     }).catch(() => {
       done();
