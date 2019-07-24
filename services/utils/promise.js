@@ -39,7 +39,7 @@ const buildDoAllResult = (n) => {
 };
 
 
-let publicMethods;
+let publicMethods = {};
 
 if (process.env.NODE_ENV === 'test') {
   publicMethods = {
