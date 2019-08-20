@@ -33,7 +33,7 @@ exports.cloneObject = (obj) => {
   // eslint-disable-next-line
   for (const attr in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, attr)) {
-      copy[attr] = obj[attr];
+      copy[attr] = this.cloneObject(obj[attr]);
     }
   }
   return copy;
