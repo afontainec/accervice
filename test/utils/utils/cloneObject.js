@@ -34,4 +34,35 @@ describe('Utils: cloneJSON', () => { // eslint-disable-line
     done();
   });
 
+  it('has inner objects',  (done) => { // eslint-disable-line
+    const input = {
+      a: 'a',
+      b: { c: 'c' },
+    };
+    const copy = Utils.cloneObject(input);
+    assert.deepEqual(copy, input);
+    copy.b.c = 'not c';
+    assert.equal(input.b.c, 'c', 'change on copy should not change original');
+    done();
+  });
+
+  it('is array with inner objects',  (done) => { // eslint-disable-line
+    const input = ['a', { c: 'c' }];
+    const copy = Utils.cloneObject(input);
+    assert.isArray(copy);
+    assert.deepEqual(copy, input);
+    copy[1].c = 'not c';
+    assert.equal(input[1].c, 'c', 'change on copy should not change original');
+    done();
+  });
+
+
+  it('is array without inner objects',  (done) => { // eslint-disable-line
+    const input = ['a', 'c'];
+    const copy = Utils.cloneObject(input);
+    assert.isArray(copy);
+    assert.deepEqual(copy, input);
+    done();
+  });
+
 });
