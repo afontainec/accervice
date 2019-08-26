@@ -56,4 +56,13 @@ describe('Array: add element', () => { // eslint-disable-line
     assert.deepEqual(result, expected);
     done();
   });
+
+  it('position is zero',  (done) => { // eslint-disable-line
+    const array = ['a', 'b', 'c'];
+    const element = 'd';
+    const result = Utils.Array.addElement(array, element, 0);
+    const expected = ['d', 'a', 'b', 'c'];
+    assert.deepEqual(result, expected);
+    done();
+  });
 });
