@@ -7,7 +7,7 @@ const removeElement = (array, element) => {
 };
 
 const addElement = (array, element, position) => {
-  if (!position || Array.isArray(array)) return array;
+  if (!position || !Array.isArray(array)) return array;
   array.splice(position, 0, element);
 
   return array;

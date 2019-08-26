@@ -16,7 +16,7 @@ describe('Array: add element', () => { // eslint-disable-line
     const array = ['a', 'b', 'c'];
     const element = 'd';
     const result = Utils.Array.addElement(array, element);
-    const expected = ['a', 'b', 'c', 'd'];
+    const expected = ['a', 'b', 'c'];
     assert.deepEqual(result, expected);
     done();
   });
