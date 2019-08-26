@@ -6,6 +6,13 @@ const removeElement = (array, element) => {
   return array;
 };
 
+const addElement = (array, element, position) => {
+  if (!position || Array.isArray(array)) return array;
+  array.splice(position, 0, element);
+
+  return array;
+};
+
 const hasElement = (array, element) => {
   if (!Array.isArray(array)) return false;
   const index = array.indexOf(element);
@@ -32,6 +39,7 @@ const removeDuplicates = (array) => {
 module.exports = {
   removeElement,
   removeDuplicates,
+  addElement,
   hasElement,
   contains,
   includes,
