@@ -1,8 +1,11 @@
 const removeElement = (array, element) => {
   const index = array.indexOf(element);
-  if (index > -1) {
-    array.splice(index, 1);
-  }
+  removeElementAt(array, index);
+  return array;
+};
+
+const removeElementAt = (array, index) => {
+  if (index > -1) array.splice(index, 1);
   return array;
 };
 
@@ -39,6 +42,7 @@ const removeDuplicates = (array) => {
 
 module.exports = {
   removeElement,
+  removeElementAt,
   removeDuplicates,
   addElement,
   hasElement,
