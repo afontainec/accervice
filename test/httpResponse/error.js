@@ -13,9 +13,9 @@ describe('Http Response: Error', () => { // eslint-disable-line
 
 
   it('code is 500, not include err',  (done) => { // eslint-disable-line
-    const result = httpResponse.cloneJSON('test', 'full msg', 500);
+    const result = httpResponse.error('test', 'full msg', 500);
     const expected = {
-      err: 'Internal Server Error',
+      error: 'Internal Server Error',
       fullError: 'full msg',
     };
     assert.deepEqual(result, expected);
@@ -23,9 +23,9 @@ describe('Http Response: Error', () => { // eslint-disable-line
   });
 
   it('code is not 500, include err',  (done) => { // eslint-disable-line
-    const result = httpResponse.cloneJSON('test', 'full msg');
+    const result = httpResponse.error('test', 'full msg');
     const expected = {
-      err: 'test',
+      error: 'test',
       fullError: 'full msg',
     };
     assert.deepEqual(result, expected);
@@ -34,9 +34,9 @@ describe('Http Response: Error', () => { // eslint-disable-line
 
   it('in production do not include full error',  (done) => { // eslint-disable-line
     process.env.NODE_ENV = 'production';
-    const result = httpResponse.cloneJSON('test', 'full msg');
+    const result = httpResponse.error('test', 'full msg');
     const expected = {
-      err: 'test',
+      error: 'test',
     };
     assert.deepEqual(result, expected);
     done();
