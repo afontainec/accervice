@@ -41,4 +41,15 @@ describe('Http Response: Error', () => { // eslint-disable-line
     assert.deepEqual(result, expected);
     done();
   });
+
+  it('NODE_ENV not specified',  (done) => { // eslint-disable-line
+    delete process.env.NODE_ENV;
+    const result = httpResponse.error('test', 'full msg');
+    const expected = {
+      error: 'test',
+      fullError: 'full msg',
+    };
+    assert.deepEqual(result, expected);
+    done();
+  });
 });
