@@ -15,10 +15,9 @@ exports.success = (text, keys, values) => {
   return json;
 };
 
-exports.error = function buildErrorJSON(error, fullMessage) {
-  const json = {
-    error,
-  };
+exports.error = function buildErrorJSON(error, fullMessage, code) {
+  if (code === 500) error = 'Internal Server Error';
+  const json = { error };
   const environment = process.env.NODE_ENV || 'development';
   if (environment !== 'production') {
     json.fullError = fullMessage;
