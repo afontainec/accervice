@@ -1,11 +1,11 @@
 {
   "name": "codemaster",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Common Utils needed for development",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha --recursive test/ --exit",
-    "coverage": "nyc check-coverage --statements 65 --branches 65 --functions 45 --lines 65  ",
+    "coverage": "nyc check-coverage --statements 70 --branches 70 --functions 50 --lines 70  ",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "linter": "eslint -c .eslintrc.js ."
   },
