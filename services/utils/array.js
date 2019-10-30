@@ -40,6 +40,18 @@ const removeDuplicates = (array) => {
   return Object.keys(uniques);
 };
 
+const parseString = (text) => {
+  text = text || '[]';
+  let ans;
+  try {
+    ans = JSON.parse(text);
+  } catch (e) {
+    ans = text;
+  }
+  if (!Array.isArray(ans)) ans = [ans];
+  return ans;
+};
+
 module.exports = {
   removeElement,
   removeElementAt,
@@ -48,4 +60,5 @@ module.exports = {
   hasElement,
   contains,
   includes,
+  parseString,
 };
