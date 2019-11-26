@@ -3,6 +3,7 @@
 let authenticated = false;
 const headers = {
   'user-agent': 'UA',
+  'x-forwarded-for': '10.5.50.1',
 };
 const secure = false;
 
