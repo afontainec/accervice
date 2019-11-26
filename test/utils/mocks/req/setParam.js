@@ -25,4 +25,9 @@ describe('Utils: req.setParams', () => { // eslint-disable-line no-undef, max-li
     done();
   });
 
+  it('IP is defined', (done) => { // eslint-disable-line no-undef
+    assert.isDefined(req.headers['x-forwarded-for']);
+    done();
+  });
+
 });
