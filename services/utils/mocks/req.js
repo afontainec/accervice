@@ -37,6 +37,15 @@ class Req {
     this.body[key] = value;
   }
 
+  addHeader(key, value) {
+    if (!key) return;
+    this.headers[key] = value;
+  }
+
+  get(key) {
+    return this.headers[key];
+  }
+
   setQuery(key, value) {
     this.query = this.query || {};
     this.query[key] = value;
