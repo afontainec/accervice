@@ -12,19 +12,22 @@ const parseUrl = (url) => {
 
 const get = async (url, config) => {
   url = parseUrl(url);
-  const data = await requestify.get(url, config);
+  const response = await requestify.get(url, config);
+  const data = response.getBody();
   return { data };
 };
 
 const post = async (url, body) => {
   url = parseUrl(url);
-  const data = await requestify.post(url, body);
+  const response = await requestify.post(url, body);
+  const data = response.getBody();
   return { data };
 };
 
 const put = async (url, body) => {
   url = parseUrl(url);
-  const data = await requestify.put(url, body);
+  const response = await requestify.put(url, body);
+  const data = response.getBody();
   return { data };
 };
 
