@@ -31,6 +31,7 @@ const put = async (url, body) => {
 
 module.exports = {
   setHost,
+  parseUrl,
   get,
   post,
   put,
