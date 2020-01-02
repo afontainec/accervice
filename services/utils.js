@@ -5,6 +5,7 @@ const db = require('./utils/db');
 const promise = require('./utils/promise');
 const req = require('./utils/mocks/req');
 const res = require('./utils/mocks/res');
+const $http = require('./utils/mocks/angularjs/http');
 
 function isJson(x) {
   // check if its null
@@ -99,6 +100,9 @@ const mocks = {
   express: {
     req,
     res,
+  },
+  angular: {
+    $http,
   },
 };
 
