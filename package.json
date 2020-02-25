@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha --recursive test/ --exit",
-    "coverage": "nyc check-coverage --statements 70 --branches 70 --functions 50 --lines 70  ",
+    "coverage": "nyc check-coverage --statements 75 --branches 85 --functions 60 --lines 75  ",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "linter": "eslint -c .eslintrc.js ."
   },
