@@ -80,7 +80,11 @@ exports.wait = (time) => {
   });
 };
 
-exports.isNullorUndefined = (elem) => {
+const isDefined = (elem) => {
+  return !isNullorUndefined(elem);
+};
+
+const isNullorUndefined = (elem) => {
   return elem === undefined || elem === null;
 };
 
@@ -106,6 +110,8 @@ const mocks = {
   },
 };
 
+exports.isDefined = isDefined;
+exports.isNullorUndefined = isNullorUndefined;
 exports.Date = Date;
 exports.Array = ArrayCM;
 exports.db = db;
