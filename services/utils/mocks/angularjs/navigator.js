@@ -7,7 +7,7 @@ class Navigator {
   }
 
   msSaveOrOpenBlob(file, filename) {
-    this.SAVED_OR_OPENED_BLOBs[filename] = filename;
+    this.SAVED_OR_OPENED_BLOBs[filename] = file;
   }
 
 
