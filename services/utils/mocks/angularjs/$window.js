@@ -1,9 +1,11 @@
 const SessionStorage = require('./sessionStorage');
+const Navigator = require('./navigator');
 
 class $Window {
 
   constructor() {
     this.sessionStorage = new SessionStorage();
+    this.navigator = new Navigator();
     this.isClosed = false;
     this.windowIsIE = false;
     this.openingUrl = '';

@@ -1,6 +1,6 @@
 
 
-class SessionStorage {
+class Navigator {
 
   constructor() {
     this.SAVED_OR_OPENED_BLOBs = {};
@@ -13,4 +13,4 @@ class SessionStorage {
 
 }
 
-module.exports = SessionStorage;
+module.exports = Navigator;
