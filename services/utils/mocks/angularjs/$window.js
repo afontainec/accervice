@@ -29,6 +29,7 @@ class $Window {
 
 }
 
+
 const $window = new $Window();
 
 module.exports = $window;
