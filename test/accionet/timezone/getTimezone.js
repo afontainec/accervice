@@ -7,6 +7,15 @@ const timezone = require('../../../services/accionet/timezone');
 // Our parent block
 describe('Timezone.updateTimezone', () => { // eslint-disable-line no-undef, max-lines-per-function
 
+  it('Timezone.set has not being called', (done) => { // eslint-disable-line no-undef
+    timezone.clearTimezone();
+    const tz = timezone.getTimezone('Ciudad de México');
+    const status = timezone.status();
+    assert.equal(tz, status.timezone['America/Mexico_City']);
+    assert.exists(tz);
+    done();
+  });
+
   it('City is not defined', (done) => { // eslint-disable-line no-undef
     timezone.updateTimezone();
     const tz = timezone.getTimezone();
