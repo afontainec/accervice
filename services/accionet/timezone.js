@@ -62,9 +62,14 @@ function status() {
 
 
 function getTimezone(city) {
+  if (notInitialized()) set();
   const tz = CITIES[city] || CITIES.Santiago;
   return timezone[tz];
 }
+
+const notInitialized = () => {
+  return Object.keys(timezone).length === 0;
+};
 
 const clearTimezone = () => {
   const keys = Object.keys(timezone);
@@ -82,6 +87,7 @@ const publicMethod = {
 if (process.env.NODE_ENV === 'test') {
   publicMethod.timezoneString = timezoneString;
   publicMethod.clearTimezone = clearTimezone;
+  publicMethod.notInitialized = notInitialized;
   // publicMethod.getOffset = getOffset;
   publicMethod.updateTimezone = updateTimezone;
 
