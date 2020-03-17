@@ -3,7 +3,7 @@
 process.env.NODE_ENV = 'test';
 
 const { assert } = require('chai');
-const timezone = require('../../../services/accionet/timezone');
+const { timezone } = require('../../../').Accionet;
 
 // Our parent block
 describe('Timezone.updateTimezone', () => { // eslint-disable-line max-lines-per-function

@@ -1,4 +1,4 @@
-
+const timezone = require('./accionet/timezone');
 
 const print = (...arg) => {
   // eslint-disable-next-line no-console
@@ -7,4 +7,5 @@ const print = (...arg) => {
 
 module.exports = {
   alert: { print },
+  timezone,
 };
