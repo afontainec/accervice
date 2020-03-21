@@ -17,6 +17,12 @@ describe('Utils: mock $cookies', () => { // eslint-disable-line no-undef, max-li
     assert.equal(result, 'value');
   });
 
+  it('remove cookey', async () => { // eslint-disable-line no-undef
+    $cookies.remove('key');
+    const result = $cookies.get('key');
+    assert.equal(result, undefined);
+  });
+
   it('add cookie without options.expires', async () => { // eslint-disable-line no-undef
     $cookies.put('key2', 'value2', {});
     const result = $cookies.get('key2');

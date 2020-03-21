@@ -25,8 +25,13 @@ const put = (key, value, options) => {
   cookies[key] = entry;
 };
 
+const remove = (key) => {
+  delete cookies[key];
+};
+
 
 module.exports = {
   get,
   put,
+  remove,
 };
