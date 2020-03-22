@@ -37,6 +37,7 @@ const fetchRequest = (request) => {
       resolve(result);
     }).catch((err) => {
       err.status = err.code;
+      err.data = err.getBody();
       reject(err);
     });
   });
