@@ -12,23 +12,34 @@ const parseUrl = (url) => {
 
 const get = async (url, config) => {
   url = parseUrl(url);
-  const response = await requestify.get(url, config);
+  const response = await fetchRequest(requestify.get(url, config));
   const data = response.getBody();
   return { data };
 };
 
 const post = async (url, body) => {
   url = parseUrl(url);
-  const response = await requestify.post(url, body);
+  const response = await fetchRequest(requestify.post(url, body));
   const data = response.getBody();
   return { data };
 };
 
 const put = async (url, body) => {
   url = parseUrl(url);
-  const response = await requestify.put(url, body);
+  const response = await fetchRequest(requestify.put(url, body));
   const data = response.getBody();
   return { data };
+};
+
+const fetchRequest = (request) => {
+  return new Promise((resolve, reject) => {
+    request.then((result) => {
+      resolve(result);
+    }).catch((err) => {
+      err.status = err.code;
+      reject(err);
+    });
+  });
 };
 
 
@@ -38,4 +49,5 @@ module.exports = {
   get,
   post,
   put,
+  fetchRequest,
 };
