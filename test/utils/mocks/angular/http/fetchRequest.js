@@ -23,10 +23,14 @@ describe('Utils: mock $http fetch Request ', () => { // eslint-disable-line no-u
     const request = new Promise((reject) => {
       const error = new Error();
       error.code = 400;
+      error.getBody = () => {
+        return { error: 'a' };
+      };
       reject(error);
     });
     $http.fetchRequest(request).then().catch((err) => {
       assert.equal(err.status, 400);
+      assert.deepEqual(err.data, { error: 'a' });
     });
   });
 });
