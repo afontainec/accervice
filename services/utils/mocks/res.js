@@ -21,6 +21,12 @@ class Res {
     this.sendingFile = file;
   }
 
+  json(key, json) {
+    this.sendingJSON = json;
+    this.sending = json;
+    this.jsonKey = key;
+  }
+
   redirect(path) {
     this.redirectingTo = path;
   }
