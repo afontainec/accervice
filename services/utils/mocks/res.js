@@ -1,8 +1,6 @@
 
 class Res {
 
-  constructor() {
-  }
 
   render(path, attr) {
     this.renderingPath = path;
