@@ -1,39 +1,40 @@
 
+class Res {
 
-function render(path, attr) {
-  this.renderingPath = path;
-  this.renderingAttr = attr;
+
+  render(path, attr) {
+    this.renderingPath = path;
+    this.renderingAttr = attr;
+  }
+
+  send(input) {
+    this.sendingFile = input;
+    this.sending = input;
+  }
+
+  status(statusToSend) {
+    this.statusToSend = statusToSend;
+    return this;
+  }
+
+  sendFile(file) {
+    this.sendingFile = file;
+  }
+
+  json(key, json) {
+    this.sendingJSON = json;
+    this.sending = json;
+    this.jsonKey = key;
+  }
+
+  redirect(path) {
+    this.redirectingTo = path;
+  }
+
+  static generate() {
+    return new Res();
+  }
 }
 
-function send(file) {
-  this.sendingFile = file;
-}
 
-function status(statusToSend) {
-  this.statusToSend = statusToSend;
-  return this;
-}
-
-function sendFile(file) {
-  this.sendingFile = file;
-}
-
-function redirect(path) {
-  this.redirectingTo = path;
-}
-
-
-const generate = () => {
-  return {
-    render,
-    redirect,
-    send,
-    sendFile,
-    status,
-  };
-};
-
-
-module.exports = {
-  generate,
-};
+module.exports = Res;
