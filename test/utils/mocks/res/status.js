@@ -12,11 +12,11 @@ const res = new Res();
 const { assert } = chai;
 
 // Our parent block
-describe('Utils: mock res send', () => { // eslint-disable-line no-undef, max-lines-per-function
+describe('Utils: mock res status', () => { // eslint-disable-line no-undef, max-lines-per-function
   it('happy path', (done) => { // eslint-disable-line no-undef
-    res.send('input');
-    assert.equal(res.sending, 'input');
-    assert.equal(res.sendingFile, 'input');
+    const result = res.status(400);
+    assert.equal(res.statusToSend, 400);
+    assert.equal(res, result);
     done();
   });
 });
