@@ -1,6 +1,9 @@
 
 class Res {
 
+  constructor() {
+    this.HEADERS = {};
+  }
 
   render(path, attr) {
     this.renderingPath = path;
@@ -29,6 +32,14 @@ class Res {
 
   redirect(path) {
     this.redirectingTo = path;
+  }
+
+  header(key, value) {
+    this.HEADERS[key] = value;
+  }
+
+  getHeader(key) {
+    return this.HEADERS[key];
   }
 
   static generate() {
