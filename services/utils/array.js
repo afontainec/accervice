@@ -65,7 +65,7 @@ const hashByField = (array, field) => {
   if (!field) throw new Error('field, property or key should be defined');
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
-    if (!response[element[field]]) response[element[field]] = element;
+    if (element && !response[element[field]]) response[element[field]] = element;
   }
   return response;
 };

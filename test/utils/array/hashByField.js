@@ -24,6 +24,18 @@ describe('Array: hashByField', () => { // eslint-disable-line
     done();
   });
 
+  it('null entry: skip it',  (done) => { // eslint-disable-line
+    const input = [{ id: 'a', value: 'aa' }, null, { id: 'b', value: 'bb' }, { id: 'c', value: 'cc' }];
+    const expected = {
+      a: { id: 'a', value: 'aa' },
+      b: { id: 'b', value: 'bb' },
+      c: { id: 'c', value: 'cc' },
+    };
+    const result = Utils.Array.hashByField(input, 'id');
+    assert.deepEqual(result, expected);
+    done();
+  });
+
   it('field is not defined',  (done) => { // eslint-disable-line
     const input = [{ id: 'a', value: 'aa' }, { id: 'b', value: 'bb' }, { id: 'c', value: 'cc' }];
     try {
