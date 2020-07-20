@@ -102,6 +102,28 @@ exports.queryToHttpString = (query) => {
   return str;
 };
 
+const deepEqual = (x, y) => {
+  // code modified from https://stackoverflow.com/questions/25456013/javascript-deepequal-comparison/25456134#:~:text=Write%20a%20function%2C%20deepEqual%2C%20that,a%20recursive%20call%20to%20deepEqual.
+  if (x === y) {
+    return true;
+  }
+  if ((typeof x === 'object' && x != null) && (typeof y === 'object' && y != null)) {
+    if (Object.keys(x).length !== Object.keys(y).length) return false;
+    const keys = Object.keys(x);
+    for (let i = 0; i < keys.length; i++) {
+      const prop = keys[i];
+      if (Object.prototype.hasOwnProperty.call(y, prop)) {
+        if (!deepEqual(x[prop], y[prop])) return false;
+      } else return false;
+    }
+
+    return true;
+  }
+  return false;
+};
+
+exports.deepEqual = deepEqual;
+
 const mocks = {
   express: {
     req,
