@@ -16,9 +16,9 @@ describe('Accionet.resolveMeAlways', () => { // eslint-disable-line max-lines-pe
     })
     it('happy path: when promise is rejected', (done) => {
       Accionet.resolveMeAlways(rejectPromise()).then(() => {
-        done('should not be here');
-      }).catch(() => {
         done()
+      }).catch(() => {
+        done('should not be here');
       })
     })
 });
