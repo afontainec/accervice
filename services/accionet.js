@@ -1,7 +1,7 @@
 const timezone = require('./accionet/timezone');
 
 /**
- * @param {Iterable | string} arg 
+ * @param {Iterable | string} arg
  * */
 const print = (...arg) => {
   // eslint-disable-next-line no-console

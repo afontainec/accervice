@@ -1,8 +1,6 @@
 /* global describe, it */
 // During the test the env variable is set to test
 process.env.NODE_ENV = 'test';
-
-const { assert } = require('chai');
 const Accionet = require('../../../services/accionet')
 
 // Our parent block
