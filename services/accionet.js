@@ -1,12 +1,5 @@
 const timezone = require('./accionet/timezone');
-
-/**
- * @param {Iterable | string} arg
- * */
-const print = (...arg) => {
-  // eslint-disable-next-line no-console
-  console.log('DEVELOPER ALERT:', ...arg);
-};
+const alert = require('./alert');
 
 /**
  * @param {Promise} promise: promise forced to be resolved
@@ -17,7 +10,7 @@ const resolveMeAlways = (promise, printAlert) => {
     promise.then((result) => {
       resolve(result);
     }).catch((error) => {
-      if (printAlert) print('Promise forced to be resolved', error);
+      if (printAlert) alert.print('Promise forced to be resolved', error);
       resolve({
         error,
       });
@@ -27,7 +20,7 @@ const resolveMeAlways = (promise, printAlert) => {
 
 
 module.exports = {
-  alert: { print },
+  alert,
   timezone,
   resolveMeAlways,
 };
