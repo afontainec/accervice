@@ -1,10 +1,10 @@
+/* eslint-disable no-console */
 
 
 /**
  * @param {Iterable | string} arg
  * */
 const print = (...arg) => {
-  // eslint-disable-next-line no-console
   console.log('DEVELOPER ALERT:', ...arg);
 };
 
@@ -13,7 +13,6 @@ const print = (...arg) => {
  * @param {Iterable | string} arg
  * */
 const warning = (...arg) => {
-  // eslint-disable-next-line no-console
   console.log('DEVELOPER WARNING:', ...arg);
 };
 
