@@ -8,6 +8,7 @@ const res = require('./utils/mocks/res');
 const $http = require('./utils/mocks/angularjs/http');
 const $cookies = require('./utils/mocks/angularjs/$cookies');
 const $window = require('./utils/mocks/angularjs/$window');
+const $location = require('./utils/mocks/angularjs/$location');
 
 function isJson(x) {
   // check if its null
@@ -133,6 +134,7 @@ const mocks = {
     $http,
     $cookies,
     $window,
+    $location,
   },
 };
 
