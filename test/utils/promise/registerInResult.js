@@ -16,16 +16,7 @@ const expectedSuccess = {
   resolve: [null, 'resolve'],
   reject: [null, null],
 };
-
-const failError = new Error('reject');
-
-
-const expectedFailed = {
-  resolve: [null, null],
-  reject: [null, failError],
-};
 const success = new Promise((resolve) => { return resolve('resolve'); });
-const failed = new Promise((resolve, reject) => { return reject(failError); });
 
 // Our parent block
 describe('Promise: registerInResult', () => { // eslint-disable-line
@@ -40,8 +31,14 @@ describe('Promise: registerInResult', () => { // eslint-disable-line
 
   it('Happy Path, with failed promise',  async () => { // eslint-disable-line
     const result = Utils.cloneJSON(example);
+    const failError = new Error('reject');
+    const failed = new Promise((resolve, reject) => { return reject(failError); });
     Utils.Promise.registerInResult(failed, 1, result);
     await Utils.wait(30);
+    const expectedFailed = {
+      resolve: [null, null],
+      reject: [null, failError],
+    };
     assert.deepEqual(result, expectedFailed);
   });
 
