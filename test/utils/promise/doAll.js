@@ -6,13 +6,6 @@ const Utils = require('../../..').utils;
 
 const { assert } = chai;
 
-const failError = new Error('reject');
-
-
-const expected = {
-  resolve: ['resolve', null],
-  reject: [null, failError],
-};
 
 const empty = {
   resolve: [],
@@ -20,7 +13,6 @@ const empty = {
 };
 
 const success = new Promise((resolve) => { return resolve('resolve'); });
-const failed = new Promise((resolve, reject) => { return reject(failError); });
 
 
 // Our parent block
@@ -28,6 +20,12 @@ describe('Promise: doAll', () => { // eslint-disable-line
 
 
   it('Happy Path', async () => { // eslint-disable-line
+    const failError = new Error('reject');
+    const expected = {
+      resolve: ['resolve', null],
+      reject: [null, failError],
+    };
+    const failed = new Promise((resolve, reject) => { return reject(failError); });
     const p = [success, failed];
     const result = await Utils.Promise.doAll(p);
     assert.deepEqual(result, expected);
