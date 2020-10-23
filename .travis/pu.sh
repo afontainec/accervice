@@ -28,7 +28,7 @@ make_version() {
 
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
-npm version patch -m "chore: release version %s [skip ci]"
+  npm version patch -m "chore: release version %s [skip ci]"
 }
 
 upload_files() {
@@ -37,6 +37,12 @@ upload_files() {
 
   # This pushes the new tag
   git push --tags
+
+  # merge to dev and push
+  git pull
+  git checkout -b dev
+  git merge master
+  git push origin dev
 }
 
 setup_git
