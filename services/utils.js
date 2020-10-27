@@ -11,6 +11,12 @@ const $window = require('./utils/mocks/angularjs/$window');
 const $location = require('./utils/mocks/angularjs/$location');
 const CookieService = require('./utils/mocks/angular/cookie.service');
 
+
+const WAIT_UNTIL = {
+  REST_TIME: 50,
+  MAX_TRIES: 30,
+};
+
 function isJson(x) {
   // check if its null
   if (!x || Array.isArray(x)) return false;
@@ -76,12 +82,21 @@ exports.promisesAll = (array, func) => {
   return Promise.all(promises);
 };
 
-exports.wait = (time) => {
+const wait = (time) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve();
     }, time);
   });
+};
+
+const waitUntil = async (func, parameters, endValue, tryCount = 0) => {
+  if (tryCount >= WAIT_UNTIL.MAX_TRIES) throw new Error(`wait until, did not happen: ${parameters} | endValue=${endValue}`);
+  const result = await func(...parameters);
+  if (result === endValue) return result;
+  await wait(WAIT_UNTIL.REST_TIME);
+  tryCount += 1;
+  return waitUntil(func, parameters, endValue, tryCount);
 };
 
 const isDefined = (elem) => {
@@ -142,8 +157,14 @@ const mocks = {
 
 exports.isDefined = isDefined;
 exports.isNullorUndefined = isNullorUndefined;
+exports.waitUntil = waitUntil;
+exports.wait = wait;
 exports.Date = Date;
 exports.Array = ArrayCM;
 exports.db = db;
 exports.mocks = mocks;
 exports.Promise = promise;
+
+if (process.env.NODE_ENV === 'test') {
+  exports.WAIT_UNTIL = WAIT_UNTIL;
+}
