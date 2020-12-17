@@ -66,6 +66,11 @@ function randomInteger(min, max) {
   return min + Math.floor(Math.random() * ((max + 1) - min));
 }
 
+exports.isNumber = (input) => {
+  const asNumber = parseFloat(input);
+  return !Number.isNaN(asNumber);
+};
+
 
 exports.randomInteger = randomInteger;
 
