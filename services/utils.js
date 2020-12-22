@@ -144,6 +144,13 @@ const deepEqual = (x, y) => {
   return false;
 };
 
+
+// code from: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+exports.capitalizeFirstLetter = (string) => {
+  if (typeof string !== 'string') return string;
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 exports.deepEqual = deepEqual;
 
 const mocks = {
