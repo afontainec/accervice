@@ -11,10 +11,10 @@ const doAll = async (promises) => {
   return result;
 };
 
-const hasErrors = async (promises) => {
-  if (!promises || !promises.errors) return false;
-  for (let i = 0; i < promises.errors.length; i++) {
-    const error = promises.errors[i];
+const hasErrors = (promises) => {
+  if (!promises || !promises.reject) return false;
+  for (let i = 0; i < promises.reject.length; i++) {
+    const error = promises.reject[i];
     if (error) return true;
   }
   return false;
@@ -58,6 +58,6 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 publicMethods.doAll = doAll;
-publicMethods.doAll = hasErrors;
+publicMethods.hasErrors = hasErrors;
 
 module.exports = publicMethods;
