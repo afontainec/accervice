@@ -11,6 +11,15 @@ const doAll = async (promises) => {
   return result;
 };
 
+const hasErrors = (promises) => {
+  if (!promises || !promises.reject) return false;
+  for (let i = 0; i < promises.reject.length; i++) {
+    const error = promises.reject[i];
+    if (error) return true;
+  }
+  return false;
+};
+
 const registerInResult = (element, i, result) => {
   return new Promise((resolve, reject) => {
     i = parseInt(i, 10);
@@ -49,5 +58,6 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 publicMethods.doAll = doAll;
+publicMethods.hasErrors = hasErrors;
 
 module.exports = publicMethods;
