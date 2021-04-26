@@ -176,7 +176,4 @@ exports.Array = ArrayCM;
 exports.db = db;
 exports.mocks = mocks;
 exports.Promise = promise;
-
-if (process.env.NODE_ENV === 'test') {
-  exports.WAIT_UNTIL = WAIT_UNTIL;
-}
+exports.WAIT_UNTIL = WAIT_UNTIL;
